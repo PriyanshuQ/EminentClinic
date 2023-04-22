@@ -61,11 +61,6 @@ function Layout({ children }) {
       path: "/admin/doctorslist",
       icon: "medical-outline",
     },
-    {
-      name: "Profile",
-      path: "/profile",
-      icon: "person",
-    },
   ];
 
   const menuToBeRendered = user?.isAdmin
