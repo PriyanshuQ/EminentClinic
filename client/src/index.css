@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap');
+
+*{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* antdoverride */
+input{
+  border-radius: 2px !important;
+  border: 1px solid rgba(128, 128, 128, 0.478) !important;
+  height: 40px !important
+}
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid gray !important;
+}
+label{
+  font-size: 16px !important;
+  color: black !important;
+}
+.ant-from-item{
+  margin:10px 0 !important;
+}
+/* Common styling */
+
+.card-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.normal-text{
+  font-size: 1rem;
+}
+.card{
+  box-shadow: 0 0 2px gray;
+  border-radius: 0 !important;
+}
+
+.primary-button{
+  background-color: #005555 !important;
+  border-color: #005555 !important;
+  height: 40px !important;
+  width: 100% !important;
+  color: white !important;
+  font-size: 16px !important;
+}
+.anchor{
+  color: black !important;
+  text-decoration: underline !important;
+  font-size: 16px !important;
+}
+.anchor:hover{
+  text-decoration: underline !important;
+}
+
+/* authentication pages */
+
+.authentication{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005555;
+  background-image: url(https://img.freepik.com/free-vector/private-hospital-chamber-with-medical-bed-night_107791-16532.jpg?w=1380&t=st=1684529257~exp=1684529857~hmac=efdaf185d060fc429e16258d6672619b1b6a27a444ffe28fd89fd20f32a26e30);
+}
+.authentication-from{
+  width: 400px;
+}
+
+.authentication .card-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: orangered;
+  color: white !important;
+  max-width: max-content !important;
+  padding: 7px 15px;
+  margin-left: -40px;
+  border-bottom-left-radius: 10px;
+}

@@ -4,15 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PriyanshuQ/ClinicMate.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -20,13 +17,12 @@
   },
   "homepage": "https://github.com/PriyanshuQ/ClinicMate#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "colors": "^1.4.0",
+    "antd": "^5.5.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.3",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "mongoose": "^6.10.5",
+    "nodemon": "^2.0.22",
+    "react-router-dom": "^6.11.2"
   }
 }
