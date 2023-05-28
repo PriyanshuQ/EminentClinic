@@ -2,6 +2,10 @@
     padding: 20px;
     height: 100vh;
 }
+.logo{
+    color: white;
+    font-weight: bold;
+}
 
 .sidebar{
     background-color: blueviolet;
@@ -10,7 +14,6 @@
     margin-right: 20px;
     min-height: 100%;
     padding: 10px;
-    width: 300px;
 }
 .content{
     width: 100%;
@@ -22,6 +25,9 @@
     box-shadow: 0 0 2px gray;
     margin-bottom: 20px;
     height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .body{
     background-color: white;
@@ -32,6 +38,7 @@
 }
 .menu{
     margin-top: 100px;
+    padding: 0 10px;
 }
 .menu-item{
     margin-top: 30px;
@@ -41,10 +48,11 @@
     text-decoration: none;
     color: rgba(255, 255, 255, 0.867);
 }
-.menu-item{
+.menu-item a{
     color: rgba(255, 255, 255, 0.764);
     text-decoration: none;
     font-size: 18px;
+    padding: 0 10px;
 }
 .menu-item ion-icon{
     color: rgba(255, 255, 255, 0.764);
@@ -59,4 +67,17 @@
     background-color: rgb(55, 3, 104);
     padding: 5px;
     border-radius: 5px;
+}
+.header-action-icon{
+    font-size: 30px;
+    color: black !important;
+    padding-top: 8px;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .menu{
+        padding: 0 5px;
+    }
 }
