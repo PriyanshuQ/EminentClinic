@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import '../layout.css'
+import { Badge } from 'antd';
 import { useSelector } from 'react-redux';
 
 function Layout({ children }) {
@@ -54,7 +55,6 @@ function Layout({ children }) {
     ];
     
     const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
-    // console.log(user?.isAdmin);
 
   return (
     <div className='main'>
@@ -93,10 +93,12 @@ function Layout({ children }) {
                     )}
 
                     <div className='d-flex align-items-center px-4'>
-                        <div className='header-action-icon px-3'>
-                            <ion-icon name="notifications-outline"></ion-icon>
-                        </div>
-                        <Link className='anchor' to='/profile'>{user?.name}</Link>
+                        <Badge count={user?.unseenNotifications.length} className='badge_count'>
+                            <div className='header-action-icon px-1'>
+                                <ion-icon name="notifications-outline"></ion-icon>
+                            </div>
+                        </Badge>
+                        <Link className='anchor mx-3' to='/profile'>{user?.name}</Link>
                     </div>
                     
                 </div>

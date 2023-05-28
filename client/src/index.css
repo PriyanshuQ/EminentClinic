@@ -10,7 +10,7 @@ input{
   border: 1px solid rgba(128, 128, 128, 0.478) !important;
   height: 40px !important
 }
-input:focus{
+input:focus , .ant-picker{
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid gray !important;
@@ -21,6 +21,15 @@ label{
 }
 .ant-from-item{
   margin:10px 0 !important;
+}
+.ant-picker-input input{
+  border: none !important;
+
+}
+.ant-picker{
+  border-radius: 2px !important;
+  border: 1px solid rgba(128, 128, 128, 0.478) !important;
+  height: 40px !important
 }
 /* Common styling */
 
@@ -48,8 +57,9 @@ label{
 }
 
 .card-title{
-  font-size: 1.5rem;
+  font-size: 22px;
   font-weight: bold;
+  color: rgba(0, 0, 0, 0.612);
 }
 .normal-text{
   font-size: 1rem;
@@ -60,12 +70,13 @@ label{
 }
 
 .primary-button{
-  background-color: #005555 !important;
-  border-color: #005555 !important;
+  background-color: #037070 !important;
+  border-color: #025c5c !important;
   height: 40px !important;
   width: 100% !important;
   color: white !important;
   font-size: 16px !important;
+  width: max-content !important;
 }
 .anchor{
   color: black !important;

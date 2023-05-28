@@ -76,6 +76,9 @@
     cursor: pointer;
     padding-left: 10px;
 }
+.badge_count{
+    
+}
 
 @media screen and (max-width: 768px){
     .menu{
