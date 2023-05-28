@@ -52,8 +52,9 @@ function Layout({ children }) {
             icon: 'person'
         },
     ];
-
-    const menuToBeRendered = user?.isAdmin? adminMenu : userMenu;
+    
+    const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
+    // console.log(user?.isAdmin);
 
   return (
     <div className='main'>
@@ -77,13 +78,6 @@ function Layout({ children }) {
                         <ion-icon name="log-in-outline"></ion-icon>
                         {!collapsed && <Link to='/login'>Logout</Link>}
                     </div>
-
-                    
-        {/* {
-            name: 'Logout',
-            path: '/logout',
-            icon: 'log-in-outline'
-        }, */}
                 </div>
             </div>
             <div className='content'>
