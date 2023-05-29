@@ -39,12 +39,12 @@ function Layout({ children }) {
         },
         {
             name: 'Users',
-            path: '/users',
+            path: '/admin/userslist',
             icon: 'people-circle-outline'
         },
         {
             name: 'Doctors',
-            path: '/doctors',
+            path: '/admin/doctorslist',
             icon: 'medical-outline'
         },
         {
