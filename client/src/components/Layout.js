@@ -93,7 +93,7 @@ function Layout({ children }) {
                     )}
 
                     <div className='d-flex align-items-center px-4'>
-                        <Badge count={user?.unseenNotifications.length} className='badge_count'>
+                        <Badge count={user?.unseenNotifications.length} className='badge_count' onClick={()=>navigate('/notifications')}>
                             <div className='header-action-icon px-1'>
                                 <ion-icon name="notifications-outline"></ion-icon>
                             </div>
