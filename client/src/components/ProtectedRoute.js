@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react'
-import { useNavigate, Navigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import { setUser, reloadUserData } from '../redux/userSlice';
-import { hideLoading, showLoading } from '../redux/alertsSlice';
+import React, { useEffect } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { setUser, reloadUserData } from "../redux/userSlice";
+import { hideLoading, showLoading } from "../redux/alertsSlice";
 
 function ProtectedRoute(props) {
-    const { user, reloadUser } = useSelector((state) => state.user);
+  const { user, reloadUser } = useSelector((state) => state.user);
+  console.log(user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getUser = async () => {
     try {
-      dispatch(showLoading())
+      dispatch(showLoading());
       const response = await axios.post(
         "/api/user/get-user-info-by-id",
         { token: localStorage.getItem("token") },
@@ -25,12 +26,12 @@ function ProtectedRoute(props) {
       if (response.data.success) {
         dispatch(setUser(response.data.data));
       } else {
-        localStorage.clear()
+        localStorage.clear();
         navigate("/login");
       }
     } catch (error) {
       dispatch(hideLoading());
-      localStorage.clear()
+      localStorage.clear();
       navigate("/login");
     }
   };
@@ -41,11 +42,11 @@ function ProtectedRoute(props) {
     }
   }, [user]);
 
-    if(localStorage.getItem('token')){
-        return props.children
-    }else{
-        return <Navigate to="/login" />
-    }
+  if (localStorage.getItem("token")) {
+    return props.children;
+  } else {
+    return <Navigate to="/login" />;
+  }
 }
 
-export default ProtectedRoute
+export default ProtectedRoute;
