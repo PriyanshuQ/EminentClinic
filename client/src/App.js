@@ -12,6 +12,7 @@ import ApplyDoctor from "./pages/ApplyDoctor";
 import Notifications from "./pages/Notifications";
 import Userslist from "./pages/Admin/Userslist";
 import Doctorslist from "./pages/Admin/DoctorsList";
+import Profile from "./pages/Doctor/Profile";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -77,6 +78,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Doctorslist />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/doctor/profile/:userId"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />
