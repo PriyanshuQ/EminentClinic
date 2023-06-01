@@ -85,6 +85,7 @@ function Layout({ children }) {
         <div className="sidebar">
           <div className="sidebar-header">
             <h1 className="logo">CM_</h1>
+            
           </div>
           <div className="menu">
             {menuToBeRendered.map((menu) => {
