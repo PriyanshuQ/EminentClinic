@@ -10,10 +10,12 @@ function DoctorForm({ onFinish, initialValues }) {
       onFinish={onFinish}
       initialValues={{
         ...initialValues,
-        timings: [
-          moment(initialValues.timings[0], "HH:mm"),
-          moment(initialValues.timings[1], "HH:mm"),
-        ],
+        ...(initialValues && 
+            {timings: [
+                moment(initialValues?.timings[0], "HH:mm"),
+                moment(initialValues?.timings[1], "HH:mm"),
+              ],}
+        )
       }}
     >
       <h1 className="card-title mt-3">Personal Information</h1>

@@ -79,13 +79,15 @@ function Layout({ children }) {
     ? doctorMenu
     : userMenu;
 
+  const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "Menu";
+
   return (
     <div className="main">
       <div className="d-flex layout">
         <div className="sidebar">
           <div className="sidebar-header">
             <h1 className="logo">CM_</h1>
-            
+            <h1 className="role">{role}</h1>
           </div>
           <div className="menu">
             {menuToBeRendered.map((menu) => {

@@ -7,6 +7,12 @@
     font-weight: bold;
 }
 
+.role{
+    color: white;
+    font-size: 14px;
+    margin-top: -20px;
+}
+
 .sidebar{
     background-color: blueviolet;
     border-radius: 5px;
