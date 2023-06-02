@@ -1,4 +1,4 @@
-ClinicMate
+#ClinicMate
 This is a doctor appointment booking system, a web application designed to simplify the process of scheduling appointments with doctors. It provides an intuitive user interface for patients to book appointments conveniently and efficiently.
 
 Features
