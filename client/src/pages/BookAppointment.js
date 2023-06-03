@@ -41,7 +41,32 @@ function BookAppointment() {
     }
   };
 
-  const 
+  const bookNow=async()=>{
+    try {
+      dispatch(showLoading());
+      const response = await axios.post(
+        "/api/doctor/book-appointment",
+        {
+          doctorId: params.doctorId,
+          userId : user,
+          date:date,
+          selectedTimings:selectedTimings,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (response.data.success) {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      toast.error('Error booking appointment')
+      dispatch(hideLoading());
+    }
+  }
 
   useEffect(() => {
     getDoctorData();
@@ -80,7 +105,7 @@ function BookAppointment() {
                 <Button className="primary-button mt-3 full-width-button">
                   Check Availability
                 </Button>
-                <Button className="primary-button mt-3 full-width-button">
+                <Button className="primary-button mt-3 full-width-button" onClick={bookNow}>
                   Book Now
                 </Button>
               </div>
