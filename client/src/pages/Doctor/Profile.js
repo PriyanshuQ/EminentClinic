@@ -73,7 +73,7 @@ function Profile() {
 
   useEffect(() => {
     getDoctorData();
-  }, [user]);
+  }, []);
 
   return (
     <Layout>

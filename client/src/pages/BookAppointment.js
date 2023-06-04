@@ -10,9 +10,9 @@ import DoctorForm from "../components/DoctorForm";
 import moment from "moment";
 
 function BookAppointment() {
-  const [isAvailable, setIsAvailabel] = useState(null);
+  const [isAvailable, setIsAvailable] = useState(null);
   const [date, setDate] = useState();
-  const [selectedTimings, setSelectedTimings] = useState();
+  const [time, setTime] = useState();
   const { user } = useSelector((state) => state.user);
   const [doctor, setDoctor] = useState(null);
   const params = useParams();
@@ -41,16 +41,19 @@ function BookAppointment() {
     }
   };
 
-  const bookNow=async()=>{
+  const bookNow = async () => {
+    setIsAvailable(false);
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/doctor/book-appointment",
+        "/api/user/book-appointment",
         {
           doctorId: params.doctorId,
-          userId : user,
-          date:date,
-          selectedTimings:selectedTimings,
+          userId: user._id,
+          doctorInfo: doctor,
+          userInfo: user,
+          date: date,
+          time: time,
         },
         {
           headers: {
@@ -63,14 +66,43 @@ function BookAppointment() {
         toast.success(response.data.message);
       }
     } catch (error) {
-      toast.error('Error booking appointment')
+      toast.error("Error booking appointment");
       dispatch(hideLoading());
     }
-  }
+  };
+
+  const checkAvailability = async () => {
+    try {
+      dispatch(showLoading());
+      const response = await axios.post(
+        "/api/user/check-booking-availability",
+        {
+          doctorId: params.doctorId,
+          date: date,
+          time: time,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setIsAvailable(true);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error("Error booking appointment");
+      dispatch(hideLoading());
+    }
+  };
 
   useEffect(() => {
     getDoctorData();
-  }, [user]);
+  }, []);
 
   return (
     <Layout>
@@ -86,28 +118,37 @@ function BookAppointment() {
                 <b>Timings :</b> {doctor.timings[0]} - {doctor.timings[1]}
               </h1>
               <div className="d-flex flex-column pt-2">
-                <DatePicker format="DD-MM-YYY" 
-                    onChange={(value) =>
-                        setDate(moment(value).format("DD-MM-YYYY"))
-                      }
+                <DatePicker
+                  format="DD-MM-YYYY"
+                  onChange={(value) => {
+                    setDate(moment(value).format("DD-MM-YYYY"));
+                    setIsAvailable(false);
+                  }}
                 />
-                <TimePicker.RangePicker
-                  format="HH-mm"
+                <TimePicker
+                  format="HH:mm"
                   className="mt-3"
-                  onChange={(values) =>
-                    setSelectedTimings([
-                        moment(values[0]).format("HH:mm"),
-                        moment(values[1]).format("HH:mm"),
-                    ])
-                  }
+                  onChange={(value) => {
+                    setIsAvailable(false);
+                    setTime(moment(value).format("HH:mm"));
+                  }}
                 />
 
-                <Button className="primary-button mt-3 full-width-button">
+                <Button
+                  className="primary-button mt-3 full-width-button"
+                  onClick={checkAvailability}
+                >
                   Check Availability
                 </Button>
-                <Button className="primary-button mt-3 full-width-button" onClick={bookNow}>
-                  Book Now
-                </Button>
+
+                {isAvailable && (
+                  <Button
+                    className="primary-button mt-3 full-width-button"
+                    onClick={bookNow}
+                  >
+                    Book Now
+                  </Button>
+                )}
               </div>
             </Col>
           </Row>
