@@ -243,4 +243,22 @@ router.post("/check-booking-avilability", authMiddleware, async (req, res) => {
   }
 });
 
+router.get("/get-appointments-by-user-id", authMiddleware, async (req, res) => {
+  try {
+    const appointments = await Appointment.find({ userId: req.body.userId });
+    res.status(200).send({
+      message: "Appointments fetched successfully",
+      success: true,
+      data: appointments,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: "Error fetching appointments",
+      success: false,
+      error,
+    });
+  }
+});
+
 module.exports = router;

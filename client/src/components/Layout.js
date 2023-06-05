@@ -25,11 +25,6 @@ function Layout({ children }) {
       path: "/apply-doctor",
       icon: "person-add",
     },
-    {
-      name: "Profile",
-      path: "/profile",
-      icon: "person",
-    },
   ];
 
   const doctorMenu = [
@@ -40,7 +35,7 @@ function Layout({ children }) {
     },
     {
       name: "Appointments",
-      path: "/appointments",
+      path: "/doctor/appointments",
       icon: "list",
     },
     {
@@ -79,7 +74,7 @@ function Layout({ children }) {
     ? doctorMenu
     : userMenu;
 
-  const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "Menu";
+  const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "User";
 
   return (
     <div className="main">
