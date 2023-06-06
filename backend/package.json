@@ -8,11 +8,8 @@
     "npm": "8.15.0"
   },
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node server.js"
+    "dev": "nodemon server.js",
+    "build": "npm i"
   },
   "repository": {
     "type": "git",

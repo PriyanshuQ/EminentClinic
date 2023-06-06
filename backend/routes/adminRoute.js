@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/userModel");
-const Doctor = require("../models/doctorModel");
-const authMiddleware = require("../middlewares/authMiddleware");
+const User = require("../backend/models/userModel");
+const Doctor = require("../backend/models/doctorModel");
+const authMiddleware = require("../backend/middlewares/authMiddleware");
 
 router.get("/get-all-doctors", authMiddleware, async (req, res) => {
   try {
@@ -57,7 +57,7 @@ router.post(
         message: `Your doctor account has been ${status}`,
         onClickPath: "/notifications",
       });
-      user.isDoctor = status==="approved" ? true : false;
+      user.isDoctor = status === "approved" ? true : false;
       await user.save();
 
       res.status(200).send({

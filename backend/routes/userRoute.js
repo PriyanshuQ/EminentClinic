@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/userModel");
-const Doctor = require("../models/doctorModel");
+const User = require("../backend/models/userModel");
+const Doctor = require("../backend/models/doctorModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const authMiddleware = require("../middlewares/authMiddleware");
+const authMiddleware = require("../backend/middlewares/authMiddleware");
 // const doctorModel = require("../models/doctorModel");
-const Appointment = require("../models/appointmentModel");
+const Appointment = require("../backend/models/appointmentModel");
 const moment = require("moment");
 
 router.post("/register", async (req, res) => {
