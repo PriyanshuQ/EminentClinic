@@ -42,6 +42,7 @@
     height: 82vh;
     width: 100%;
     padding: 15px;
+    overflow-x: scroll !important;
 }
 .menu{
     margin-top: 100px;

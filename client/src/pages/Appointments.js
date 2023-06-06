@@ -69,7 +69,7 @@ function Appointments() {
   return  <Layout>
   <h1 className="page-title">Appointments</h1>
   <hr />
-  <Table columns={columns} dataSource={appointments} />
+  <Table columns={columns} dataSource={appointments}  />
 </Layout>
 }
 

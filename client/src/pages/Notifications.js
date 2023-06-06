@@ -58,6 +58,7 @@ function Notifications() {
   return (
     <Layout>
         <h1 className='page-title'>Notifications</h1>
+        <hr />
         <Tabs>
             <Tabs.TabPane tab="Unseen" key={0}>
                 <div className="d-flex justify-content-end">
