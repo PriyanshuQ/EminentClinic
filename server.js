@@ -8,13 +8,15 @@ const userRoute = require("./routes/userRoute");
 const adminRoute = require("./routes/adminRoute");
 const doctorsRoute = require("./routes/doctorsRoute");
 const path = require("path");
+const { fileURLToPath } = require("url");
 
-app.use(express.static(path.join(__dirname, './client/build')))
+// const __filename = fileURLToPath(import.meta.url)
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 //rest api
-app.user("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./client/build/index.html"));
-  });
+app.use("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
