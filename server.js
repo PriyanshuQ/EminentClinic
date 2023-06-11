@@ -8,15 +8,12 @@ const userRoute = require("./routes/userRoute");
 const adminRoute = require("./routes/adminRoute");
 const doctorsRoute = require("./routes/doctorsRoute");
 const path = require("path");
-const { fileURLToPath } = require("url");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
-//rest api
+// Rest API
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "client/build", "index.html"));
 });
 
 app.use("/api/user", userRoute);
