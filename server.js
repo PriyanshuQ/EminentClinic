@@ -11,16 +11,12 @@ const path = require("path");
 const { fileURLToPath } = require("url");
 
 // const __filename = fileURLToPath(import.meta.url)
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/build/index.html")));
 
 //rest api
-// app.use("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
-// });
-app.get('*', function (req, res) {
-    const index = path.join(__dirname, 'build', 'index.html');
-    res.sendFile(index);
-  });
+app.use("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
