@@ -11,7 +11,7 @@ const path = require("path");
 const { fileURLToPath } = require("url");
 
 // const __filename = fileURLToPath(import.meta.url)
-app.use(express.static(path.join(__dirname, "./client/build/index.html")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 //rest api
 app.use("*", (req, res) => {
