@@ -137,9 +137,12 @@ function Layout({ children }) {
                   <ion-icon name="notifications-outline"></ion-icon>
                 </div>
               </Badge>
-              <Link className="anchor mx-3" to="/profile">
+              <h3
+                className="anchor mx-3"
+                onClick={() => navigate(user?.isDoctor ? `/doctor/profile/${user?._id}` : null)}
+              >
                 {user?.name}
-              </Link>
+              </h3>
             </div>
           </div>
           <div className="body">{children}</div>
