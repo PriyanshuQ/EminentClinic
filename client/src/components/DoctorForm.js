@@ -90,7 +90,7 @@ function DoctorForm({ onFinish, initivalValues }) {
             name="experience"
             rules={[{ required: true }]}
           >
-            <Input placeholder="Experience" type="number" />
+            <Input placeholder="Experience (in years)" type="number" />
           </Form.Item>
         </Col>
         <Col span={8} xs={24} sm={24} lg={8}>
@@ -110,6 +110,7 @@ function DoctorForm({ onFinish, initivalValues }) {
             name="timings"
             rules={[{ required: true }]}
           >
+            
             <TimePicker.RangePicker format="HH:mm" />
           </Form.Item>
         </Col>

@@ -31,7 +31,6 @@ function DoctorAppointments() {
   };
 
   const changeAppointmentStatus = async (record, status) => {
-    
     try {
       dispatch(showLoading());
       const resposne = await axios.post(
